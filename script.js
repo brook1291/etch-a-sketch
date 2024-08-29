@@ -1,5 +1,7 @@
 const container = document.querySelector('#container');
 const changeGridBtn = document.querySelector('#change-grid');
+const colorInput = document.querySelector('input[type = color]');
+const randomEasterEgg = document.querySelector('h1');
 
 for (let i = 1; i <= 256; i++) {
   const squareDiv = document.createElement('div');

@@ -44,6 +44,9 @@ button {
   border: 1px solid white;
   padding: 5px;
   border-radius: 6px;
+}
+
+#customising-options > * {
   cursor: pointer;
 }
 
@@ -51,5 +54,4 @@ button {
   background-color: black;
   width: 90px;
   height: 40px;
-  cursor: pointer;
 }
