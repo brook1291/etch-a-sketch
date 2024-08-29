@@ -46,3 +46,10 @@ button {
   border-radius: 6px;
   cursor: pointer;
 }
+
+#customising-options input {
+  background-color: black;
+  width: 90px;
+  height: 40px;
+  cursor: pointer;
+}
