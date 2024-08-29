@@ -4,8 +4,21 @@
   box-sizing: border-box;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #container {
-  width: 480px;
-  height: 480px;
+  width: 512px;
+  height: 512px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#container > * {
+  width: 32px;
+  height: 32px;
   border: 1px solid black;
 }
