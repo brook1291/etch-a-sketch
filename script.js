@@ -15,7 +15,7 @@ for (let i = 1; i <= 256; i++) {
 
 changeGridBtn.addEventListener('click', () => {
   const squares = Math.floor(
-    +prompt('How many squares do you want on each side?')
+    +prompt('How many squares do you want on each side (value between 1-100)?')
   );
   if (squares > 100 || squares < 1 || isNaN(squares)) {
     alert('Please enter a number between 1 and 100.');
