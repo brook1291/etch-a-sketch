@@ -7,11 +7,7 @@ for (let i = 1; i <= 256; i++) {
   const squareDiv = document.createElement('div');
   container.appendChild(squareDiv);
   squareDiv.addEventListener('mouseover', () => {
-    squareDiv.style.backgroundColor = `rgb(${Math.floor(
-      Math.random() * (255 - 1) + 1
-    )}, ${Math.floor(Math.random() * (255 - 1) + 1)}, ${Math.floor(
-      Math.random() * (255 - 1) + 1
-    )})`;
+    squareDiv.style.backgroundColor = colorInput.value;
   });
 }
 
@@ -29,11 +25,7 @@ changeGridBtn.addEventListener('click', () => {
       squareDiv.style.width = `${512 / squares}px`;
       container.appendChild(squareDiv);
       squareDiv.addEventListener('mouseover', () => {
-        squareDiv.style.backgroundColor = `rgb(${Math.floor(
-          Math.random() * (255 - 1) + 1
-        )}, ${Math.floor(Math.random() * (255 - 1) + 1)}, ${Math.floor(
-          Math.random() * (255 - 1) + 1
-        )})`;
+        squareDiv.style.backgroundColor = colorInput.value;
       });
     }
   }
