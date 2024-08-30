@@ -2,6 +2,7 @@ const container = document.querySelector('#container');
 const changeGridBtn = document.querySelector('#change-grid');
 const colorInput = document.querySelector('input[type = color]');
 const randomModeToggle = document.querySelector('h1');
+const clearBtn = document.querySelector('#clear');
 
 for (let i = 1; i <= 256; i++) {
   const squareDiv = document.createElement('div');
@@ -54,6 +55,12 @@ randomModeToggle.addEventListener('click', () => {
     randomModeToggle.style.fontSize = '20px';
   } else {
     randomModeToggle.textContent = 'Etch-a-Sketch';
-    randomModeToggle.style.fontSize = '32px';
+    randomModeToggle.style.fontSize = '30px';
   }
+});
+
+clearBtn.addEventListener('click', () => {
+  document.querySelectorAll('#container div').forEach((div) => {
+    div.style.backgroundColor = 'white';
+  });
 });
