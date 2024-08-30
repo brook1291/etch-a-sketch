@@ -5,21 +5,31 @@ const randomModeToggle = document.querySelector('h1');
 const clearBtn = document.querySelector('#clear');
 
 function colorSquare(e) {
-  if (randomModeToggle.className === 'random-on') {
-    e.target.style.backgroundColor = `rgb(${Math.floor(
-      Math.random() * (255 - 1) + 1
-    )}, ${Math.floor(Math.random() * (255 - 1) + 1)}, ${Math.floor(
-      Math.random() * (255 - 1) + 1
-    )})`;
-  } else {
-    e.target.style.backgroundColor = colorInput.value;
+  if (isMouseDown) {
+    if (randomModeToggle.className === 'random-on') {
+      e.target.style.backgroundColor = `rgb(${Math.floor(
+        Math.random() * (255 - 1) + 1
+      )}, ${Math.floor(Math.random() * (255 - 1) + 1)}, ${Math.floor(
+        Math.random() * (255 - 1) + 1
+      )})`;
+    } else {
+      e.target.style.backgroundColor = colorInput.value;
+    }
   }
 }
+
+let isMouseDown = false;
+container.addEventListener('dragstart', (e) => e.preventDefault());
 
 for (let i = 1; i <= 256; i++) {
   const squareDiv = document.createElement('div');
   container.appendChild(squareDiv);
+  squareDiv.addEventListener('mousedown', () => (isMouseDown = true));
   squareDiv.addEventListener('mouseenter', colorSquare);
+  squareDiv.addEventListener('mouseup', (e) => {
+    colorSquare(e);
+    isMouseDown = false;
+  });
 }
 
 changeGridBtn.addEventListener('click', () => {
@@ -35,7 +45,12 @@ changeGridBtn.addEventListener('click', () => {
       squareDiv.style.height = `${512 / squares}px`;
       squareDiv.style.width = `${512 / squares}px`;
       container.appendChild(squareDiv);
+      squareDiv.addEventListener('mousedown', () => (isMouseDown = true));
       squareDiv.addEventListener('mouseenter', colorSquare);
+      squareDiv.addEventListener('mouseup', (e) => {
+        colorSquare(e);
+        isMouseDown = false;
+      });
     }
   }
 });
