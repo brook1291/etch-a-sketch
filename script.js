@@ -4,20 +4,22 @@ const colorInput = document.querySelector('input[type = color]');
 const randomModeToggle = document.querySelector('h1');
 const clearBtn = document.querySelector('#clear');
 
+function colorSquare(e) {
+  if (randomModeToggle.className === 'random-on') {
+    e.target.style.backgroundColor = `rgb(${Math.floor(
+      Math.random() * (255 - 1) + 1
+    )}, ${Math.floor(Math.random() * (255 - 1) + 1)}, ${Math.floor(
+      Math.random() * (255 - 1) + 1
+    )})`;
+  } else {
+    e.target.style.backgroundColor = colorInput.value;
+  }
+}
+
 for (let i = 1; i <= 256; i++) {
   const squareDiv = document.createElement('div');
   container.appendChild(squareDiv);
-  squareDiv.addEventListener('mouseover', () => {
-    if (randomModeToggle.className === 'random-on') {
-      squareDiv.style.backgroundColor = `rgb(${Math.floor(
-        Math.random() * (255 - 1) + 1
-      )}, ${Math.floor(Math.random() * (255 - 1) + 1)}, ${Math.floor(
-        Math.random() * (255 - 1) + 1
-      )})`;
-    } else {
-      squareDiv.style.backgroundColor = colorInput.value;
-    }
-  });
+  squareDiv.addEventListener('mouseenter', colorSquare);
 }
 
 changeGridBtn.addEventListener('click', () => {
@@ -33,17 +35,7 @@ changeGridBtn.addEventListener('click', () => {
       squareDiv.style.height = `${512 / squares}px`;
       squareDiv.style.width = `${512 / squares}px`;
       container.appendChild(squareDiv);
-      squareDiv.addEventListener('mouseover', () => {
-        if (randomModeToggle.className === 'random-on') {
-          squareDiv.style.backgroundColor = `rgb(${Math.floor(
-            Math.random() * (255 - 1) + 1
-          )}, ${Math.floor(Math.random() * (255 - 1) + 1)}, ${Math.floor(
-            Math.random() * (255 - 1) + 1
-          )})`;
-        } else {
-          squareDiv.style.backgroundColor = colorInput.value;
-        }
-      });
+      squareDiv.addEventListener('mouseenter', colorSquare);
     }
   }
 });
